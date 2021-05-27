@@ -28,8 +28,7 @@
     }
   },
   "variables": {
-    "nicName": "[concat(parameters('virtualMachineName'), 'Nic')]",
-    "publicIPAddressName": "[concat(parameters('virtualMachineName'), '-ip')]"
+    "nicName": "nic-irhub-mns"
   },
   "resources": [
     {
