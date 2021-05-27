@@ -98,9 +98,9 @@
       "-",
       "_"
     ],
-    "prefix": "[split(parameters('IntegrationRuntimeName'), variables('delimiters'))[0]]",
-    "storageAccountName": "[take(concat(toLower(variables('prefix')), uniquestring(resourceGroup().id, parameters('IntegrationRuntimeName'))), 24)]",
-    "networkSecurityGroupName": "[concat(parameters('IntegrationRuntimeName'), 'nsg')]",
+    "suffix": "-mns",
+    "storageAccountName": "sairhubmns",
+    "networkSecurityGroupName": "nsg-ir-hub-mns",
     "vmTemplateLink": "[uri(parameters('_artifactsLocation'), concat('nested/VMtemplate.json', parameters('_artifactsLocationSasToken')))]",
     "irInstallTemplateLink": "[uri(parameters('_artifactsLocation'), concat('nested/IRInstall.json', parameters('_artifactsLocationSasToken')))]",
     "IRtemplateLink": "[uri(parameters('_artifactsLocation'), concat('nested/IRtemplate.json', parameters('_artifactsLocationSasToken')))]",
@@ -190,7 +190,7 @@
         },
         "parameters": {
           "virtualMachineName": {
-            "value": "[take(concat('vm',copyIndex(),'-', variables('prefix')), 15)]"
+            "value": "vm-irhub-mns"
           },
           "vmSize": {
             "value": "[parameters('vmSize')]"
@@ -242,7 +242,7 @@
             "value": "[reference(resourceId(parameters('existingDataFactoryResourceGroup'), 'Microsoft.Resources/deployments', 'nestedTemplate')).outputs.irId.value]"
           },
           "virtualMachineName": {
-            "value": "[take(concat('vm',copyIndex(),'-', variables('prefix')), 15)]"
+            "value": "vm-irhub-mns"
           },
           "existingVnetLocation": {
             "value": "[parameters('existingVnetLocation')]"
