@@ -41,7 +41,8 @@
           {
             "name": "ipconfig1",
             "properties": {
-              "privateIPAllocationMethod": "Dynamic",
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "10.250.0.40",
               "subnet": {
                 "id": "[parameters('subnetId')]"
               }
