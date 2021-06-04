@@ -94,8 +94,26 @@ function Download-Gateway([string] $url, [string] $gwPath)
     try
     {
         $ErrorActionPreference = "Stop";
-        $client = New-Object System.Net.WebClient
-        $client.DownloadFile($url, $gwPath)
+#         $client = New-Object System.Net.WebClient
+#         $client.DownloadFile($url, $gwPath)
+
+	$scope = Get-VMHost
+	$user = 'mensura_admin'
+	$pswd = '#IR@Mensura2021'
+	$cred = New-Object PSCredential -ArgumentList $user,(ConvertTo-SecureString -String $pswd -AsPlainText -Force)
+
+	$global:PSDefaultParameterValues = @{
+		'Invoke-WebRequest:Proxy' = 'http://proxy:porxyport'
+		'Invoke-WebRequest:ProxyCredential'= $cred
+	}
+	
+	$sWebRequest = @{
+	    Uri = $url
+	    OutFile = $gwPath
+	}
+
+	Invoke-WebRequest @sWebRequest
+	
         Trace-Log "Download gateway successfully. Gateway loc: $gwPath"
     }
     catch
