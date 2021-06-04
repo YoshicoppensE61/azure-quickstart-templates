@@ -131,7 +131,7 @@
             "value": "[parameters('existingDataFactoryVersion')]"
           },
           "datafactoryId": {
-            "value": "[reference(resourceId(parameters('existingDataFactoryResourceGroup'), 'Microsoft.Resources/deployments', 'nestedTemplate')).outputs.irId.value]"
+            "value": "/subscriptions/dd89214f-b904-4148-a70e-9f4398dcd34a/resourceGroups/rg-dap-mns-dev/providers/Microsoft.DataFactory/factories/adf-dap-mns-dev"
           },
           "virtualMachineName": {
             "value": "vm-irhub-mns"
