@@ -12,6 +12,7 @@ if (! (Test-Path($logLoc)))
 $logPath = "$logLoc\tracelog.log"
 "Start to excute gatewayInstall.ps1. `n" | Out-File $logPath
 
+Install-WindowsFeature -Name RSAT-Hyper-V-Tools -IncludeAllSubFeature
 import-module Hyperv
 
 function Now-Value()
