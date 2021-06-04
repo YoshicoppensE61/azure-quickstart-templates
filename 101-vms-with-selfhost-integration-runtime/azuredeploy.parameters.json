@@ -3,37 +3,46 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "existingDataFactoryName": {
-      "value":"GET-PREREQ-dataFactoryName"
+      "value": "adf-dap-mns-dev"
     },
     "existingDataFactoryResourceGroup": {
-      "value":"GET-PREREQ-resourceGroupName"
+      "value": "rg-dap-mns-dev"
     },
     "existingDataFactoryVersion": {
-      "value":"V1"
+      "value": "V2"
     },
     "IntegrationRuntimeName": {
-      "value":"GEN-UNIQUE"
+      "value": "hubIntegrationRuntime"
     },
-    "NodeCount":{
+    "NodeCount": {
       "value": 1
     },
+    "vmSize": {
+      "value": "Standard_D2"
+    },
     "adminUserName": {
-      "value": "GEN-UNIQUE"
+      "value": "mensura_admin"
     },
     "adminPassword": {
-      "value": "GEN-PASSWORD"
+      "value": "#IR@Mensura2021"
     },
-    "existingVirtualNetworkName":{
-      "value": "GET-PREREQ-vnetName"
-    },
-    "existingVnetResourceGroupName":{
-      "value": "GET-PREREQ-resourceGroupName"
-    },
-    "existingSubnetInYourVnet": {
-      "value": "GET-PREREQ-subnetName"
+    "existingVirtualNetworkName": {
+      "value": "vnet-dap-mns-dev"
     },
     "existingVnetLocation": {
-      "value": "GET-PREREQ-vnetLocation"
+      "value": "West Europe"
+    },
+    "existingVnetResourceGroupName": {
+      "value": "rg-net-mns-dev"
+    },
+    "existingSubnetInYourVnet": {
+      "value": "snet-dap2-mns-dev"
+    },
+    "_artifactsLocation": {
+      "value": "[deployment().properties.templateLink.uri]"
+    },
+    "_artifactsLocationSasToken": {
+      "value": null
     }
   }
 }
