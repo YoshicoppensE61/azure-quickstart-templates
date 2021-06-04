@@ -112,9 +112,6 @@
       "apiVersion": "2019-09-01",
       "type": "Microsoft.Resources/deployments",
       "name": "[concat('IRInstalltemplate-', copyIndex())]",
-      "dependsOn": [
-        "vmcopy"
-      ],
       "copy": {
         "name": "irinstallcopy",
         "count": "[parameters('NodeCount')]",
