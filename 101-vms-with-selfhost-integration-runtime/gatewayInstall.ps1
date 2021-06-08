@@ -12,7 +12,7 @@ if (! (Test-Path($logLoc)))
 $logPath = "$logLoc\tracelog.log"
 "Start to excute gatewayInstall.ps1. `n" | Out-File $logPath
 
-Install-WindowsFeature -Name RSAT-Hyper-V-Tools -IncludeAllSubFeature
+Uninstall-WindowsFeature -Name RSAT-Hyper-V-Tools -IncludeAllSubFeature
 
 function Now-Value()
 {
@@ -99,16 +99,6 @@ function Download-Gateway([string] $url, [string] $gwPath)
 #         $client = New-Object System.Net.WebClient
 #         $client.DownloadFile($url, $gwPath)
 
-	$scope = Get-VMHost
-	$user = 'mensura_admin'
-	$pswd = '#IR@Mensura2021'
-	$cred = New-Object PSCredential -ArgumentList $user,(ConvertTo-SecureString -String $pswd -AsPlainText -Force)
-
-	$global:PSDefaultParameterValues = @{
-		'Invoke-WebRequest:Proxy' = 'http://proxy:porxyport'
-		'Invoke-WebRequest:ProxyCredential'= $cred
-	}
-	
 	$sWebRequest = @{
 	    Uri = $url
 	    OutFile = $gwPath
