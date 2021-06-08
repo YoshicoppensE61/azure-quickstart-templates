@@ -12,8 +12,6 @@ if (! (Test-Path($logLoc)))
 $logPath = "$logLoc\tracelog.log"
 "Start to excute gatewayInstall.ps1. `n" | Out-File $logPath
 
-Uninstall-WindowsFeature -Name RSAT-Hyper-V-Tools -IncludeAllSubFeature
-
 function Now-Value()
 {
     return (Get-Date -Format "yyyy-MM-dd HH:mm:ss")
